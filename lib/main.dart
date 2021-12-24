@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      home: PersonWidget(),
     );
   }
 }
@@ -47,6 +48,7 @@ class PersonWidget extends StatelessWidget {
 
 Widget _buildMainColumn() => ListView(
       children: [
+        // _buildTopImage(),
         Center(
           child: Container(
             padding: const EdgeInsets.only(left: 20, right: 20),
