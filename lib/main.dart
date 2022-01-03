@@ -37,42 +37,67 @@ class PersonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Бла бла бла'),
+        title: Text('Звёздные войны'),
       ),
       body: Container(
         child: _buildMainColumn(),
       ),
     );
   }
-}
 
-Widget _buildMainColumn() => ListView(
-      children: [
-        // _buildTopImage(),
-        Center(
-          child: Container(
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: Column(
-              children: <Widget>[
-                Container(
-                  margin: const EdgeInsets.all(5),
-                  child: Text('Рейтинг'),
-                ),
-                Card(
-                  elevation: 5,
-                  margin: const EdgeInsets.all(5),
-                  child: Container(
-                    padding: const EdgeInsets.all(10),
-                    child: Text('Кнопочки'),
+  Widget _buildMainColumn() => ListView(
+        children: [
+          _buildTopImage(),
+          Center(
+            child: Container(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    margin: const EdgeInsets.all(5),
+                    child: _bildRating(),
                   ),
-                ),
-                Container(
-                  margin: const EdgeInsets.all(5),
-                  child: Text('Описание'),
-                ),
-              ],
+                  Card(
+                    elevation: 5,
+                    margin: const EdgeInsets.all(5),
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      child: Text('Кнопочки'),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.all(5),
+                    child: Text('Описание'),
+                  ),
+                ],
+              ),
             ),
           ),
+        ],
+      );
+
+  Widget _buildTopImage() => Container(
+        child: Card(
+          margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
+          elevation: 5,
+          child: Image.asset(
+            'assets/images/1.jpg',
+            fit: BoxFit.cover,
+          ),
         ),
-      ],
-    );
+      );
+
+  Widget _bildRating() => ListTile(
+        title: Text(
+          'Дарт Вейдер',
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        subtitle: Text('Применение телекинеза.'),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[FavoriteWidget()],
+        ),
+      );
+}
