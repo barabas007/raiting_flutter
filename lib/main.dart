@@ -55,14 +55,14 @@ class PersonWidget extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     margin: const EdgeInsets.all(5),
-                    child: _bildRating(),
+                    child: _buildRating(),
                   ),
                   Card(
                     elevation: 5,
                     margin: const EdgeInsets.all(5),
                     child: Container(
                       padding: const EdgeInsets.all(10),
-                      child: Text('Кнопочки'),
+                      child: _buildAction(),
                     ),
                   ),
                   Container(
@@ -87,7 +87,7 @@ class PersonWidget extends StatelessWidget {
         ),
       );
 
-  Widget _bildRating() => ListTile(
+  Widget _buildRating() => ListTile(
         title: Text(
           'Дарт Вейдер',
           style: TextStyle(
@@ -99,5 +99,32 @@ class PersonWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[FavoriteWidget()],
         ),
+      );
+
+  Widget _buildAction() => Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          _buildButton('Дада', Icons.star, Colors.black),
+          _buildButton('Нетнет', Icons.radar_outlined, Colors.black),
+          _buildButton('Угуугу', Icons.school, Colors.black),
+        ],
+      );
+
+  Widget _buildButton(String label, IconData icon, Color color) => Column(
+        children: <Widget>[
+          Icon(
+            icon,
+            color: Colors.black,
+          ),
+          Container(
+            child: Text(
+              label,
+              style: TextStyle(
+                fontWeight: FontWeight.w400,
+                color: color,
+              ),
+            ),
+          ),
+        ],
       );
 }
