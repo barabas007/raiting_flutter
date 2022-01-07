@@ -67,7 +67,7 @@ class PersonWidget extends StatelessWidget {
                   ),
                   Container(
                     margin: const EdgeInsets.all(5),
-                    child: Text('Описание'),
+                    child: _buildDesc(),
                   ),
                 ],
               ),
@@ -92,6 +92,7 @@ class PersonWidget extends StatelessWidget {
           'Дарт Вейдер',
           style: TextStyle(
             fontWeight: FontWeight.w500,
+            fontSize: 20.0,
           ),
         ),
         subtitle: Text('Применение телекинеза.'),
@@ -127,4 +128,15 @@ class PersonWidget extends StatelessWidget {
           ),
         ],
       );
+
+  Widget _buildDesc() => Text(
+    ' Центральный персонаж первых шести эпизодов саги «Звёздные войны».' 
+    'Также появляется в фильме «Изгой-один». В киноэпопее «Звёздные войны»'
+    ' демонстрируются его становление в качестве рыцаря-джедая, его переход на Тёмную' 
+    ' сторону Силы и его итоговое искупление. Отец Люка Скайуокера и Леи Органы.' 
+     'Единственный персонаж, появляющийся в шести эпизодах и спин-оффе «Изгой-один»' 
+     '«во плоти»',
+     softWrap: true,
+     style: TextStyle(fontSize: 16.0,),
+  );    
 }
