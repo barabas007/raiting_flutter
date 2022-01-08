@@ -26,9 +26,37 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('777'),
+    return Row(
+      children: <Widget>[
+        Container(
+          child: IconButton(
+            icon: (_isFavorited
+                ? Icon(Icons.favorite)
+                : Icon(Icons.favorite_border)),
+            onPressed: _toggleFavorite,
+            color: Colors.red.shade400,
+          ),
+        ),
+        SizedBox(
+          width: 40,
+          child: Container(
+            child: Text('$_favoriteCount'),
+          ),
+        ),
+      ],
     );
+  }
+
+  void _toggleFavorite() {
+    setState(() {
+      if (_isFavorited) {
+        _isFavorited = false;
+        _favoriteCount -= 1;
+      } else {
+        _isFavorited = true;
+        _favoriteCount += 1;
+      }
+    });
   }
 }
 
@@ -130,13 +158,15 @@ class PersonWidget extends StatelessWidget {
       );
 
   Widget _buildDesc() => Text(
-    ' Центральный персонаж первых шести эпизодов саги «Звёздные войны».' 
-    'Также появляется в фильме «Изгой-один». В киноэпопее «Звёздные войны»'
-    ' демонстрируются его становление в качестве рыцаря-джедая, его переход на Тёмную' 
-    ' сторону Силы и его итоговое искупление. Отец Люка Скайуокера и Леи Органы.' 
-     'Единственный персонаж, появляющийся в шести эпизодах и спин-оффе «Изгой-один»' 
-     '«во плоти»',
-     softWrap: true,
-     style: TextStyle(fontSize: 16.0,),
-  );    
+        ' Центральный персонаж первых шести эпизодов саги «Звёздные войны».'
+        'Также появляется в фильме «Изгой-один». В киноэпопее «Звёздные войны»'
+        ' демонстрируются его становление в качестве рыцаря-джедая, его переход на Тёмную'
+        ' сторону Силы и его итоговое искупление. Отец Люка Скайуокера и Леи Органы.'
+        'Единственный персонаж, появляющийся в шести эпизодах и спин-оффе «Изгой-один»'
+        '«во плоти»',
+        softWrap: true,
+        style: TextStyle(
+          fontSize: 16.0,
+        ),
+      );
 }
